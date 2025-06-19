@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, LogBox } from 'react-native';
+import { StatusBar} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import './global.css';
 import Navigation from './src/navigation/Navigation';
