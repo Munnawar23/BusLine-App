@@ -7,7 +7,6 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './src/service/queryClient';
 
 export default function App() {
-  LogBox.ignoreLogs(['Each child in a list should have a unique "key" prop']);
 
   return (
     <SafeAreaProvider>
