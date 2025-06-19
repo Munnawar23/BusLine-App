@@ -12,6 +12,7 @@ dotenv.config();
 
 const app = express();
 
+
 const corsOption = {
   origin: '*',
   methods: ['GET', 'POST', 'DELETE', 'PATCH'],
