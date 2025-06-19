@@ -16,7 +16,7 @@ import BookItem from './BookItem';
 
 const Bookings = () => {
   const [selectedTab, setSelectedTab] = useState('All');
-  const [refreshing, setRefreshing] = useState(false); // fixed typo
+  const [refreshing, setRefreshing] = useState(false);
 
   const {
     data: tickets,
@@ -74,15 +74,17 @@ const Bookings = () => {
     <View className="flex-1 p-2 bg-white">
       <FlatList
         ListHeaderComponent={
-          <>
-            <Search />
-            <Text className="text-2xl font-bold my-4">Past Bookings</Text>
-            <View className="flex-row mb-4">
+          <View key="list-header">
+            <View key="search">
+              <Search />
+            </View>
+            <Text key="title" className="text-2xl font-bold my-4">Past Bookings</Text>
+            <View key="tabs" className="flex-row mb-4 flex-wrap">
               {tabs?.map(tab => (
                 <TouchableOpacity
                   key={tab}
-                  onPress={() => setSelectedTab(tab)} // ✅ added this
-                  className={`px-4 py-2 rounded-lg mx-1 ${
+                  onPress={() => setSelectedTab(tab)}
+                  className={`px-4 py-2 rounded-lg mx-1 mb-2 ${
                     selectedTab === tab ? 'bg-red-500' : 'bg-gray-300'
                   }`}
                 >
@@ -96,11 +98,11 @@ const Bookings = () => {
                 </TouchableOpacity>
               ))}
             </View>
-          </>
+          </View>
         }
         showsHorizontalScrollIndicator={false}
         data={filteredBookings}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id?.toString() ?? Math.random().toString()}
         nestedScrollEnabled
         ListEmptyComponent={
           <View className="items-center mt-6">
