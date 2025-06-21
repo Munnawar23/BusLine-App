@@ -4,7 +4,7 @@ const TicketSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User", required: true },
   bus: { type: Schema.Types.ObjectId, ref: "Bus", required: true },
   date: { type: Date, required: true },
-  seatNumbers: { type: [Number], required: true }, // ✅ Correct
+  seatNumbers: { type: [Number], required: true }, 
   total_fare: { type: Number, required: true },
   status: {
     type: String,

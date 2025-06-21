@@ -1,13 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 
-// Define Seat Schema with _id enabled
 const SeatSchema = new Schema(
   {
     seat_id: { type: Number, required: true },
     type: { type: String, enum: ["window", "side", "path"], required: true },
     booked: { type: Boolean, default: false },
   },
-  { _id: true } // ✅ Ensure each seat gets a unique MongoDB _id
+  { _id: true }
 );
 
 // Define Bus Schema
@@ -26,7 +25,7 @@ const BusSchema = new Schema({
   rating: { type: Number, default: 0 },
   totalReviews: { type: Number, default: 0 },
   badges: [{ type: String }],
-  seats: [[SeatSchema]], // 2D array of Seat subdocuments
+  seats: [[SeatSchema]], 
 });
 
 // Export model
